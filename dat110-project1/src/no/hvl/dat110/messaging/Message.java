@@ -19,6 +19,10 @@ public class Message {
 		// TODO - END
 	}
 
+	public Message() {
+		super();
+	}
+
 	public byte[] getData() {
 		return this.data; 
 	}
