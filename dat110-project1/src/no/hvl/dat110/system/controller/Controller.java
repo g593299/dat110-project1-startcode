@@ -37,7 +37,7 @@ public class Controller  {
 		for (int i = 0; i < N; i++) { 
 			
 			int verdi = sensor.read(); 
-			display.write(verdi + " °C");
+			display.write(verdi + "°C");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -45,7 +45,6 @@ public class Controller  {
 			}
 		}
 	
-		
 	
 		
 		// TODO - END

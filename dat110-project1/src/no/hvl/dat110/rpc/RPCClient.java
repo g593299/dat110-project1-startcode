@@ -57,9 +57,9 @@ public class RPCClient {
 			connect();
 		}
 		
-		byte[] rpcmsg = RPCUtils.encapsulate(rpcid, params);
+		byte[] bytes = RPCUtils.encapsulate(rpcid, params);
 		
-		Message reqMes = new Message(rpcmsg);
+		Message reqMes = new Message(bytes);
 		connection.send(reqMes);
 		
 		Message recivedMsg = connection.receive();
