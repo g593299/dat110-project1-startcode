@@ -49,16 +49,17 @@ public class RPCServer {
 		   byte rpcid = 0;
 			
 		    requestmsg = connection.receive();
+		    
 		    rpcid = requestmsg.getData()[0];
+		    
 			byte[] bytes = RPCUtils.decapsulate(requestmsg.getData());
+			
 			
 			RPCRemoteImpl finn = services.get(rpcid);
 			byte[] svar = finn.invoke(bytes); 
 			
 			
-			byte[] svarmsg = RPCUtils.encapsulate(rpcid, svar);
-			
-			replymsg = new Message(svarmsg); 
+			replymsg = new Message(RPCUtils.encapsulate(rpcid, svar)); 
 			
 			connection.send(replymsg);
 		   
